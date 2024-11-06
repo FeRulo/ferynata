@@ -216,6 +216,7 @@
 	var smoothScrolling = function(){
 		$(function () {
 			$('a[href*=#]:not([href=#])').click(function () {
+
 				if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
 
 					var target = $(this.hash);
@@ -231,19 +232,29 @@
 
     });
 	}
+
+
 	// Confirm
     var confirm = function(){
 		$('#form-inline').on('submit', function (e) {
-        e.preventDefault();
-        var data = $(this).serialize();
-		console.log("entrando")
-		$.post('https://script.google.com/macros/s/AKfycby9QTCcCpmwPGL_gpriUzKobDD1plNEfma9cog059ggWT1zVMtTIlcWpopTziCHz5Oi/exec', data)
-			.done(function (data) {
-				console.log(data);
-			})
-			.fail(function (data) {
-				console.log(data);
-			});
+			$(".fh5co-loader").fadeIn("slow");
+			e.preventDefault();
+			var data = $(this).serialize();
+			var name = $('#name').val();
+			$.post('https://script.google.com/macros/s/AKfycby9QTCcCpmwPGL_gpriUzKobDD1plNEfma9cog059ggWT1zVMtTIlcWpopTziCHz5Oi/exec', data)
+				.done(function (d) {
+					$(".fh5co-loader").fadeOut("slow");
+					$('#modalTitle').text('¡Gracias '+name+' !' );
+					$('#modalBody').text('Tus datos han sido enviados con éxito.');
+					$('#confirmationModal').modal('show');
+				})
+				.fail(function (data) {
+					$(".fh5co-loader").fadeOut("slow");
+					$('#modalTitle').text('Error');
+					$('#modalBody').text('Hubo un problema al enviar tus datos: ' + error);
+					$('#confirmationModal').modal('show');
+					
+				});
     });
 	}
 	

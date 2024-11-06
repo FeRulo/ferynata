@@ -1368,6 +1368,11 @@ form label {
 #fh5co-started .form-control:-ms-input-placeholder {
   color: #fff;
 }
+
+#fh5co-started .form-control option {
+  background: rgba(0, 0, 0, 0.3);
+}
+
 #fh5co-started .form-control:focus {
   background: rgba(255, 255, 255, 0.3);
 }
@@ -1676,8 +1681,8 @@ form label {
   border: 2px solid #4eb656;
 }
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-  background: #f366a3 !important;
-  border-color: #f366a3 !important;
+  background: #439c4a !important;
+  border-color: #439c4a !important;
 }
 .btn-primary.btn-outline {
   background: transparent;
