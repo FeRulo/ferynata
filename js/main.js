@@ -246,7 +246,6 @@
 				.done(function (d) {
 					$(".fh5co-loader").fadeOut("slow");
 					$('#modalTitle').text('¡Gracias '+name+' !' );
-					$('#modalBody').text('Tus datos han sido enviados con éxito.');
 					$('#confirmationModal').modal('show');
 				})
 				.fail(function (data) {
