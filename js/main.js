@@ -21,12 +21,16 @@
 
 	var offcanvasMenu = function() {
 
-		$('#page').prepend('<div id="fh5co-offcanvas" />');
+		$('#page').prepend('<div id="fh5co-offcanvas"/>');
 		$('#page').prepend('<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle fh5co-nav-white"><i></i></a>');
 		var clone1 = $('.menu-1 > ul').clone();
 		$('#fh5co-offcanvas').append(clone1);
 		var clone2 = $('.menu-2 > ul').clone();
 		$('#fh5co-offcanvas').append(clone2);
+		$('#fh5co-offcanvas li a').click(function () {
+			$('body').removeClass('offcanvas');
+    		$('.js-fh5co-nav-toggle').removeClass('active');
+		});
 
 		$('#fh5co-offcanvas .has-dropdown').addClass('offcanvas-has-dropdown');
 		$('#fh5co-offcanvas')
@@ -36,7 +40,6 @@
 		// Hover dropdown menu on mobile
 		$('.offcanvas-has-dropdown').mouseenter(function(){
 			var $this = $(this);
-
 			$this
 				.addClass('active')
 				.find('ul')
