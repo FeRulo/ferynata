@@ -1352,7 +1352,9 @@ form label {
   color: #fff;
 }
 #fh5co-started .fh5co-heading p {
-  color: rgba(255, 255, 255, 0.5);
+  color: #ffffffe1;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
 }
 #fh5co-started .form-control {
   background: rgba(255, 255, 255, 0.2);
