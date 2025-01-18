@@ -248,15 +248,19 @@
 			$.post('https://script.google.com/macros/s/AKfycby9QTCcCpmwPGL_gpriUzKobDD1plNEfma9cog059ggWT1zVMtTIlcWpopTziCHz5Oi/exec', data)
 				.done(function (d) {
 					$(".fh5co-loader").fadeOut("slow");
-					$('#modalTitle').text('¡Gracias '+name+' !' );
+					if(d.success){
+						$('#modalTitle').text('¡Gracias '+name+' !' );
+					}else{
+						$('#modalTitle').text('Error');
+						$('#modalBody').text('Hubo un problema al enviar tus datos: ' + d.error);
+					}
 					$('#confirmationModal').modal('show');
 				})
-				.fail(function (data) {
+				.fail(function (error) {
 					$(".fh5co-loader").fadeOut("slow");
 					$('#modalTitle').text('Error');
-					$('#modalBody').text('Hubo un problema al enviar tus datos: ' + error);
+					$('#modalBody').text('Hubo un problema al enviar tus datos: ' + error.message);
 					$('#confirmationModal').modal('show');
-					
 				});
     });
 	}
