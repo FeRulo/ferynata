@@ -248,12 +248,7 @@
 			$.post('https://script.google.com/macros/s/AKfycby9QTCcCpmwPGL_gpriUzKobDD1plNEfma9cog059ggWT1zVMtTIlcWpopTziCHz5Oi/exec', data)
 				.done(function (d) {
 					$(".fh5co-loader").fadeOut("slow");
-					if(d.success){
-						$('#modalTitle').text('¡Gracias '+name+' !' );
-					}else{
-						$('#modalTitle').text('Error');
-						$('#modalBody').text('Hubo un problema al enviar tus datos: ' + d.error);
-					}
+					$('#modalTitle').text('¡Gracias '+name+' !' );
 					$('#confirmationModal').modal('show');
 				})
 				.fail(function (error) {
